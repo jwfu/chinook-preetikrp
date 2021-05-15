@@ -1,4 +1,4 @@
-
-Select InvoiceLine.InvoiceId, Count(InvoiceLineId) as 'Total# of lines'
-from InvoiceLine
-Group by InvoiceId
+SELECT i.InvoiceId,
+    COUNT(i.InvoiceId)
+FROM InvoiceLine i
+GROUP BY i.InvoiceId;

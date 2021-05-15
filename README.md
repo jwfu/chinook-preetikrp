@@ -1,3 +1,4 @@
+Some SQL excersises I did to improve my SQL skills.
 
 # chinook-preetikrp
 Learning SQL with Chinook

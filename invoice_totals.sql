@@ -1,7 +1,9 @@
-Select  Invoice.InvoiceDate, Customer.FirstName || ' ' || Customer.LastName as 'Customer Full Name',
- 
-Employee.FirstName || ' ' || Employee.LastName as 'Sales Agent Name'
-from Invoice
- Join Employee on (Customer.SupportRepId = Employee.EmployeeId)
- Join Customer on (Invoice.CustomerId = Customer.CustomerId)
-
+SELECT i.Total,
+    c.FirstName || ' '  || c.LastName AS CustomerFullName,
+    c.Country,
+    e.FirstName || ' '  || e.LastName AS AgentFullName
+FROM Invoice i
+JOIN Customer c
+ON i.CustomerId = c.CustomerId
+JOIN Employee e
+ON c.SupportRepId = e.EmployeeId;

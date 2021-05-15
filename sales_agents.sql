@@ -1,5 +1,3 @@
-Select EmployeeId, LastName, FirstName, 
-Title, ReportsTo, BirthDate, HireDate,
- Address, City, State, Country, PostalCode, 
- Phone, Fax, Email from Employee
-Where Title = 'Sales Support Agent'
+SELECT *
+FROM Employee e
+WHERE e.Title = 'Sales Support Agent';

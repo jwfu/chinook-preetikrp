@@ -1,2 +1,2 @@
-Select Distinct(BillingCountry) from Invoice
-
+SELECT DISTINCT(i.BillingCountry)
+FROM Invoice i;

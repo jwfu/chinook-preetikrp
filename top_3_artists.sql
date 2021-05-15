@@ -1,7 +1,9 @@
---Provide a query that shows the top 3 best selling artists.
-select Artist.Name,Artist.ArtistId, sum(InvoiceLine.UnitPrice) as TotalSale from InvoiceLine 
-inner join Invoice on Invoice.InvoiceId = InvoiceLine.InvoiceId
-inner join Album on Album.ArtistId = Artist.ArtistId
-inner join Artist on Artist.ArtistId= Album.ArtistId
-group by Artist.ArtistId
-order by TotalSale desc Limit 3;
+SELECT ar.Name,
+    SUM(i.Quantity * i.UnitPrice) AS Sales
+FROM InvoiceLine i
+    JOIN Track t ON i.TrackId = t.TrackId
+    JOIN Album al ON t.AlbumId = al.AlbumId
+    JOIN Artist ar ON al.ArtistId = ar.ArtistId
+GROUP BY ar.ArtistId
+ORDER BY Sales DESC
+LIMIT 3;

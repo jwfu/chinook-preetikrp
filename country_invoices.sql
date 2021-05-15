@@ -1,4 +1,4 @@
-
-select BillingCountry, Count(BillingCountry) from invoice
-group by BillingCountry
-
+SELECT i.BillingCountry,
+    COUNT(i.BillingCountry)
+FROM Invoice I
+GROUP BY i.BillingCountry;

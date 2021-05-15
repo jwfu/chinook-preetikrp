@@ -1,5 +1,7 @@
-Select Customer.FirstName || ' ' || Customer.LastName as FullName,
- Invoice.InvoiceId, Invoice.InvoiceDate, 
- Invoice.BillingCountry from Customer, invoice
-Where Invoice.BillingCountry = 'Brazil' 
-and Customer.CustomerId = Invoice.CustomerId
+SELECT c.FirstName || ' ' || c.LastName AS FullName,
+    i.InvoiceId,
+    i.InvoiceDate,
+    i.BillingCountry
+FROM Customer c
+    INNER JOIN Invoice i ON c.CustomerId = i.CustomerId
+WHERE i.BillingCountry IS 'Brazil';

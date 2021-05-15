@@ -1,7 +1,8 @@
--- Provide a query that shows the top 5 most purchased songs.
-select Track.Name, Invoice.InvoiceDate, sum(InvoiceLine.Quantity) as siq from InvoiceLine 
-inner join Invoice on Invoice.InvoiceId = InvoiceLine.InvoiceId
-inner join Track on Track.TrackId = InvoiceLine.TrackId 
-group by Track.Name
-order by siq desc Limit 5;
-
+SELECT t.Name,
+    SUM(i.Quantity) AS Quantity
+FROM InvoiceLine i
+    JOIN Invoice inv ON i.InvoiceId = inv.InvoiceId
+    JOIN Track t ON i.TrackId = t.TrackId
+GROUP BY t.Name
+ORDER BY Quantity DESC
+LIMIT 5;

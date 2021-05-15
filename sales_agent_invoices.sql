@@ -1,13 +1,7 @@
-Select Employee.FirstName || ' ' || Employee.LastName as 'Sales Agent' , Invoice.* from Employee
-Join Customer on Employee.EmployeeId = Customer.SupportRepId
-Join Invoice on Customer.CustomerId = Invoice.CustomerId
-Order by invoiceId
-
-
-
-
-
-
-/*SELECT Persons.Name, Persons.SS, Fears.Fear FROM Persons
-LEFT JOIN Person_Fear ON Person_Fear.PersonID = Persons.PersonID
-LEFT JOIN Fears ON Person_Fear.FearID = Fears.FearID*/
+SELECT e.FirstName || ' '  || e.LastName AS FullName,
+    i.InvoiceId
+FROM Invoice i
+INNER JOIN Customer c
+ON i.CustomerId = c.CustomerId
+INNER JOIN Employee e
+ON c.SupportRepId = e.EmployeeId;
